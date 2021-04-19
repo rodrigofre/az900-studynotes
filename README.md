@@ -121,7 +121,7 @@
 	- Full control over OS
 	- Maintain and patch VM image
 	- When creating a VM: type of image, size of VM (RAM, processors), availability options
-	- Lots of preconfigured images and purpose 
+	- Lots of preconfigured images and purpose (Azure Marketplace: applications/services created by Microsoft or technology partners)
 	- Shut down to save costs: manually or on a schedule
 	- Enables hybrid cloud: extend on-prem
 	- Administrative model: role-based, permissions
@@ -134,8 +134,26 @@
 		- Spread VMs across fault domains and update domains
 		- No additional charge for scale set: pay for underlying resources (VMs, load balancer, disk storage)
 	- Azure Batch: pool of VMs to do large-scale high performance computing jobs in parallel
-		- Azure Containers
+		- Azure Containers: reduction of costs and improve agility by simplifying processes and reducing friction when releasing/shipping applications
+			![image](https://user-images.githubusercontent.com/78084580/115288568-f28c2780-a127-11eb-8a62-8602e6dd1b05.png)
+			![image](https://user-images.githubusercontent.com/78084580/115291288-f1a8c500-a12a-11eb-866f-9da4410471bf.png)
+			- Azure Container Instances: deploy containers without maintaining or patching environments
+				- Smaller applications: simple web apps, smaller devtest scenarios, small-scale batch processing
+				- Single container instance per container (low availability, limited scalability)
+			- Azure Kubernetes Service: more complex architectures with greater control around deploying and managing health and performance of containers
+				- Container management system
+				- Scale out container-based applications
+				- Monitoring and deploying containers 
+				- Possibility to leverage VM Scale Sets
+				- Connect with Azure Container Registry: pull container images and build containers from those images
+				- Connect with Azure Monitor: monitoring performance and health of the cluster
+			- Azure App Service
 		- Azure App Service: PaaS, no need to manage infrastructure
+			- Similar to traditional web hosting: frameworks already installed on servers
+			- Handles management and patching of the web servers
+			- Hosts web applications, REST APIs, back-end for mobile applications, containers, WebJobs (continuously/on-schedule) -> executable files, scripts
+		- Azure App Service Plans: defines size of the underlying infrastructure (VMs Azure-managed, limited access) like CPU, RAM and storage -> pricing tier
+			- Access to different features depending on the pricing tier
 		- Azure Serverless Computing: build applications without managing any underlying infrastructure
 			- Azure Functions: run small blocks of code
 			- Azure Logic Apps: configure workflows in the cloud
