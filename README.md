@@ -155,16 +155,159 @@
 		- Azure App Service Plans: defines size of the underlying infrastructure (VMs Azure-managed, limited access) like CPU, RAM and storage -> pricing tier
 			- Access to different features depending on the pricing tier
 		- Azure Serverless Computing: build applications without managing any underlying infrastructure
+			- Focus on code and business logic
 			- Azure Functions: run small blocks of code
-			- Azure Logic Apps: configure workflows in the cloud
-			- Azure Event Grid: build applications that respond to events
+				- Initiated by triggers, timer event
+			- Azure Logic Apps: configure/design workflows in the cloud
+				- No need to write code, but it's possible to call Azure Functions if needed
+				- Initiated by triggers
+				- Large library of connectors (e.g. SharePoint, Azure Storage, Zendesk, SAP)
+			- Azure Event Grid: build applications that respond to events (event-based architecture e.g publish/subscribe)
+				- Connects data sources and event handlers
+				- Possibility to create events subscription, automation
+		![image](https://user-images.githubusercontent.com/78084580/115916234-e74c3b00-a44a-11eb-8ff7-cdc9e36ea283.png)
 	- Networking
-		- Virtual network gateways
+		- Virtual network
+		![image](https://user-images.githubusercontent.com/78084580/115917864-267b8b80-a44d-11eb-985b-9c2b375dbd61.png)
 		- Load balancers
-		- Azure CDN
-	- Storage
-		- Azure storage accounts
-- Platform solutions
-	- Internet of Things
-	- Big Data Analytics
-  - Artificial Intelligence
+		![image](https://user-images.githubusercontent.com/78084580/115918043-62aeec00-a44d-11eb-9274-be4a940f7c2b.png)
+			- Application Gateway
+			![image](https://user-images.githubusercontent.com/78084580/115918101-78241600-a44d-11eb-96db-506354449a6c.png)
+				- SSL Termination
+				- Autoscaling
+				- Session Affinity
+				- HTTP Header Rewriting
+				- Advanced Routing
+				- Web Application Firewall
+		- Hybrid Cloud
+		![image](https://user-images.githubusercontent.com/78084580/115918377-d4873580-a44d-11eb-8c71-4fd1833b4515.png)
+		![image](https://user-images.githubusercontent.com/78084580/115918753-495a6f80-a44e-11eb-81ae-e58f1937bd5c.png)
+			- ExpressRoute: connect on-prem servers directly to Microsoft data centers
+				- Increased speed and encryption options -> increased cost
+				- Made for big corporate clients with major security requirements
+				- Pricing may be under metered data (per GB) or unlimited data (monthly fee)
+				- Bandwidth up to 10Gbps (100Gbps if using ExpressRoute Direct)
+				- Also provides redundancy
+		- Windows Virtual Desktop
+				- Full desktop for users
+				- Apps running remotely
+				- Similar to Remote Desktop Services (RDS) 
+				- Fully managed solution in the cloud
+				- Possibility to use a single VM for multiple users: each user's data persisted on a separate disk
+				- Possibility to scale in and/or out depending on needs (pay as you go)
+				- Possibility of using pre-built images on Azure Marketplace or own prebuilt custom images
+				- Authentication: Azure Active Directory, Azure multi-factor authentication
+				- Support for most Windows Server versions and 10, 7
+		- Azure CDN: distributed network of servers to store cached data, in order to minimize latency to global users and offloading traffic from source web
+		![image](https://user-images.githubusercontent.com/78084580/115921328-b6bbcf80-a451-11eb-8e8c-faf5cb062865.png)
+		![image](https://user-images.githubusercontent.com/78084580/115921553-069a9680-a452-11eb-880c-ba98d8342e09.png)
+		![image](https://user-images.githubusercontent.com/78084580/115921713-41043380-a452-11eb-848b-81295330be6b.png)
+		![image](https://user-images.githubusercontent.com/78084580/115921836-71e46880-a452-11eb-9aac-e84e5882b042.png)
+			- Mostly static data e.g. images, fonts, videos, HTML pages, client-side scripts, etc.
+			- Can connect to multiple Azure services
+			- Dynamic Site Acceleration: deliver content faster
+			![image](https://user-images.githubusercontent.com/78084580/115922030-ba038b00-a452-11eb-9eb6-ec08845ce622.png)
+			![image](https://user-images.githubusercontent.com/78084580/115922100-dacbe080-a452-11eb-8d55-c1606acde522.png)
+## Azure Data Storage
+- Benefits
+	- Automated backup and recovery
+	- Replication across the world
+	- Encryption options
+	- Security and platform integration
+	- Development features and support
+![image](https://user-images.githubusercontent.com/78084580/115923054-0f8c6780-a454-11eb-9725-3969459b2f83.png)
+### Structured data management
+- SQL Server on VMs
+	- Full control over SQL Server
+	- Provision VMs from Azure Marketplace
+	- Pay as you go pricing - no licensing fees
+	- Automated updates scheduling
+	- Managed backup to Microsoft Azure
+- Azure SQL Database: fully managed platform-as-a-service
+	- Always running the latest version of SQL Server
+	- Flexible pricing model: number of virtual cores, DTUs (database transaction units: CPU + memory + data throughput)
+	- Flexible deployment options: single database, elastic pool (collection of databases with shared set of resources)
+	- Automatic scaling
+	- Service tiers for different workloads: common workloads, high transaction rates, very large transactional
+	- Some built-in functions are not available, but majority of features is available
+- Azure SQL Managed Instance
+	- Broadest set of SQL Server capabilities
+	- Benefits of managed platform
+	- Deploy VM onto VNET
+	- Lift-and-shift on-prem databases with minimal changes into an isolated environment
+	- Automatic patching and version updates, automated backups, high availability
+- Azure Database for MySQL: platform-as-a-service
+	- Open-source tools and platform compatibility
+	- MySQL Community Edition
+	- Pay as you go pricing
+	- High availability
+	- Dynamic scalability
+	- Encryption
+	- Automated patching and backup
+- Azure Database for PostgreSQL: platform-as-a-service
+	- Supports complex data structures
+	- Geometric data types
+	- Extensions for GIS
+	- Managed database features (same as Azure Database for MySQL)
+	- Deployment models: single server and Hyperscale Citus (faster response time, good performance for huge datasets 100GB+)
+- Other databases can be used under VMs (some images available on Azure Marketplace) 
+### Semi-structured data management
+- Azure Cosmos DB: globally distributed, multi-modal database
+![image](https://user-images.githubusercontent.com/78084580/115926297-0356d900-a459-11eb-97a9-971502ea437b.png)
+	- Fast response times
+	- Ability to scale up and down rapidly and globally: different regions
+	- Backed by SSD storage
+	- Consistency options: ensure distributed data is updated
+	- Flexible: APIs, not one-size-fits-all
+![image](https://user-images.githubusercontent.com/78084580/115926579-71030500-a459-11eb-9dd1-d1c834dae79d.png)
+### Data Services
+- Azure Storage Accounts
+![image](https://user-images.githubusercontent.com/78084580/115927577-03f06f00-a45b-11eb-9450-7a32701c9451.png)
+![image](https://user-images.githubusercontent.com/78084580/115927624-14084e80-a45b-11eb-8d57-caffaee62bfe.png)
+![image](https://user-images.githubusercontent.com/78084580/115927649-1f5b7a00-a45b-11eb-8074-5255611609c7.png)
+![image](https://user-images.githubusercontent.com/78084580/115927679-300bf000-a45b-11eb-9b6a-04a3f9e78542.png)
+![image](https://user-images.githubusercontent.com/78084580/115927736-45811a00-a45b-11eb-8694-3707031e03c8.png)
+	- Azure Blob Storage: unstructured data e.g. files and documents
+	![image](https://user-images.githubusercontent.com/78084580/115929004-6b0f2300-a45d-11eb-8eb3-c23345bb7896.png)
+		- Blob snapshots
+		- Blob leases: prevent other people to make changes
+		- Soft delete: recycle bin
+		- Static website hosting
+		- CDN integration
+		- Azure Search integration
+		- Cost factors: storage cost vs transaction cost
+		![image](https://user-images.githubusercontent.com/78084580/115929196-bf1a0780-a45d-11eb-8554-1f08b6123777.png)
+	- Azure File Storage 
+		- SMB protocol (port 445)
+		- Can be attached to VMs like a network drive
+		- File share with drive letter e.g. H:\
+		- Good for migration scenarios
+		- Files accessible through REST interface with mechanisms for restricting access
+		- Can be mounted concurrently by cloud or on-prem servers
+		- Can be cached on Windows servers using Azure File Sync for fast access
+			- Possibility to tier files based on how they're used
+	- Azure Disk Storage: VMs disks
+	- Azure Table Storage: structured date in form of NoSQL non-relational data (similar to CosmosDB)
+	- Azure Queue Storage: store and retrieve messages
+- Data Access Authorization
+	- Role-based access control in Azure Active Directory
+	- Storage account keys
+	- Shared Access Signatures
+		- Security token string 
+		- Scope access to particular services, containers or folders
+		- Start and end validity period
+		- May contain permissions
+- Programatic access to storage accounts
+	- REST APIs
+	- SDKs for many languages
+	- PowerShell
+	- Azure CLI
+	- Azure Storage Explorer
+	- AzCopy (CLI tool)
+- Transferring data to Azure
+	- Azure Database Migration Service
+## Azure Platform Solutions
+- Internet of Things
+- Big Data Analytics
+- Artificial Intelligence
+## Azure DevOps Solutions
