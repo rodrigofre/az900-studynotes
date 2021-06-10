@@ -2,20 +2,27 @@
 
 ## What is cloud computing?
  - Resources consuming on demand as utility e.g. VMs, storage
+ - Delivery of computing services over the Internet
  - No need to maintain own infrastructure
 ## Advantages
-- Rapid elasticity
+- Faster innovation
+- Rapid elasticity (flexible resources)
 - Pay-as-you-need
 - Reliability
 - Economies of scale
 
+## Cloud benefits
+![image](https://user-images.githubusercontent.com/78084580/121568955-a60deb80-c9f6-11eb-8bb8-80b80f25861a.png)
+
 ## Types of cloud computing services: how much you manage vs how much cloud vendor manages
- - Infrastructure as a service
- - Platform as a service
- - Software as a service
+ - Infrastructure as a service: pay-as-you-go, infrastructure building (renting servers, VMs, storage, networks)
+ - Platform as a service: environment for building, testing and deploying software applications, without focus on managing underlying infrastructure
+ - Software as a service: users connect to and use cloud-based apps over the Internet
 
 ![image](https://user-images.githubusercontent.com/78084580/115070612-8ca36400-9ecb-11eb-918d-11b4352c665a.png)
 ![image](https://user-images.githubusercontent.com/78084580/115070713-af357d00-9ecb-11eb-9a6e-928b95311a5f.png)
+![image](https://user-images.githubusercontent.com/78084580/121570161-fd608b80-c9f7-11eb-8305-848d09470b2a.png)
+![image](https://user-images.githubusercontent.com/78084580/121570324-23862b80-c9f8-11eb-8f6a-3360b4b70b72.png)
 
 ## CC Services Scenarios
 - IaaS: test and development, storage and backups, high performance computing, big data analysis
@@ -24,9 +31,16 @@
 
 ## CC Deployment Models
 - Public Cloud: hardware shared between clients, Azure, Office 365
-- Private Cloud: Azure Stack, looks like data center model, hardware used by a single company
+- Private Cloud: Azure Stack, looks like **data center model**, hardware used by a single company (company responsible), no access to users outside of the organization
 - Hybrid Cloud (public + private w/ orchestration): Azure Stack
 - Community Cloud: governments, Azure Government, Germany, China
+
+![image](https://user-images.githubusercontent.com/78084580/121568689-54fdf780-c9f6-11eb-8ea5-10decdeed618.png)
+
+## CapEx vs. OpEx
+![image](https://user-images.githubusercontent.com/78084580/121569436-2af90500-c9f7-11eb-9eea-f1c692b14c7b.png)
+![image](https://user-images.githubusercontent.com/78084580/121569603-5976e000-c9f7-11eb-91d3-ed65d0d22bf2.png)
+
 
 ## Azure Concepts
 ### Azure Data Centers
@@ -58,15 +72,25 @@
 	- Azure Geographies: contains one or more regions
 		- Used to meet data residency and compliance requirements
 		- Single country or set of countries
+	- Availability Sets: keep applications online during maintenance or hardware failure
+		- ![image](https://user-images.githubusercontent.com/78084580/121571983-12d6b500-c9fa-11eb-890a-0bc0c22fdef1.png)
+		- Update domains (UD): scheduled maintenance, performance or security updates are sequenced through update domains
+		- Fault domains (FD): physical separation of workloads across different hardware in a datacenter
 	- Availability Zones: unique physical locations within a single region
+		- ![image](https://user-images.githubusercontent.com/78084580/121572347-74971f00-c9fa-11eb-94e2-6a5d4d6b502c.png)
 		- One or more data centers equipped with independent power, cooling and networking
 		- Not available in every region: some regions may contain one data center only. When availability zones are available, there's a minimum of three separate zones
 		- Some services may replicate data between availability zones automatically
+		- Connected through private fiber-optic networks
 	- Region Pairs: data centers located 300+ miles, main goal to reduce impact on availability
 		- Configuration of automatic replication and failover for some services
 		- High availability: service updates for one region at one time
 		- Outage recover prioritization: at least one region in each pair will be prioritized for disaster recovery
-### Azure Resource Groups: logical containers
+		- Updates rolled out sequentially to minimize downtime
+		- ![image](https://user-images.githubusercontent.com/78084580/121571535-8926e780-c9f9-11eb-8317-6d64a215e1d6.png)
+![image](https://user-images.githubusercontent.com/78084580/121571671-b2e00e80-c9f9-11eb-9c20-dc69cfc802a3.png)
+### Azure Resource Groups: logical containers to manage and aggregate resources in a single unit
+![image](https://user-images.githubusercontent.com/78084580/121572665-ccce2100-c9fa-11eb-9b91-ece3076f6c3e.png)
 - Resource: manageable item (VMs, storage, web apps, databases)
 - Container that holds related resources: set of resources that share the same lifecycle
 - Deploy, update and delete resources together
@@ -78,17 +102,27 @@
 - If a resource needs to exist on a different deployment cycle, it should be in another resource group
 - Security controls for administrative actions: roles in the team do not have full control to every resource
 - Can export infrastructure-as-code using resource manager templates
-	- Azure Resource Manager
+	- Azure Resource Manager: management layer tha enables creation, update and deletion of resourcesn in a Azure subscription
 		- Accessed by many tools such as Azure Portal, Azure PowerShell, Azure CLI, REST interfaces
+		- ![image](https://user-images.githubusercontent.com/78084580/121572933-10288f80-c9fb-11eb-8556-fbd29cc0fc69.png)
 
 	![image](https://user-images.githubusercontent.com/78084580/115070799-caa08800-9ecb-11eb-96c1-20ede4182b77.png)
+	- Azure Subscription: authenticated and authorized access to Azure accounts
+		- Billing boundary: separate billing reports and invoices for each subscription
+		- Access control boundary: manage and control access to resources that users can provision with specific subscriptions
+		- ![image](https://user-images.githubusercontent.com/78084580/121573083-34846c00-c9fb-11eb-818e-86bf282c4250.png)
 
-- Tools for managing resources
+# Azure Resources
+![image](https://user-images.githubusercontent.com/78084580/121572544-adcf8f00-c9fa-11eb-82cb-1b7fc278a83b.png)
+
+- Tools for managing resources (Azure Management/Monitoring Tools)
 	- Azure CLI Interface
 	- Resource Manager Templates
 		- Infrastructure as code: script out repeatable deployments of servers and application infrastructure
 		- CI/CD pipelines (Azure Pipelines, GitHub, PowerShell, Azure CLI, Azure Portal)
 		- .json files that defines infrastructure and configuration for Azure resources
+		- Create and deploy Azure infrastructure without having to write programming commands
+		- ![image](https://user-images.githubusercontent.com/78084580/121587192-e5463780-ca0a-11eb-9181-326d1c8ff669.png)
 	- Azure Service Health
 		- Global view of health of Azure across regions
 		- Azure Status
@@ -102,6 +136,8 @@
 		- Can monitor on-prem resources
 		- Collects metrics from azure resources (single resources only)
 		- Different metrics depending on type of resource
+		- Maximize availability and performance of applications
+		- Application Insights, Log Analytics, Smart Alerts, Automation Alerts, Customized Dashboards
 	- Azure Mobile App
 		- Useful for health and status monitoring for Azure resources
 		- Diagnose and fix issues
@@ -110,9 +146,13 @@
 	- Azure Advisor: how to optimize Azure for security best practices, cost savings, reliability, operational excellence and performance
 		- Recommendations
 		- Possible to create alerts depending on category and impact
+	- Azure PowerShell
+	- Azure Cloud Shell
+	- Azure REST API 
+	- Azure Portal
 ## Azure Core products
 ### Azure Compute: on-demand computing power
-- Easy to provision new resources
+- Easy to provision new computing resources, like disks, processors, memory, networking and operating systems
 - Pay as you use
 - No need to manage infrastructure with PaaS options
 - Scale depending on workloads
@@ -158,10 +198,11 @@
 			- Focus on code and business logic
 			- Azure Functions: run small blocks of code
 				- Initiated by triggers, timer event
+				- Based on events
 			- Azure Logic Apps: configure/design workflows in the cloud
 				- No need to write code, but it's possible to call Azure Functions if needed
 				- Initiated by triggers
-				- Large library of connectors (e.g. SharePoint, Azure Storage, Zendesk, SAP)
+				- Large library of connectors (e.g. SharePoint, Azure Storage, Zendesk, SAP, Outlook)
 			- Azure Event Grid: build applications that respond to events (event-based architecture e.g publish/subscribe)
 				- Connects data sources and event handlers
 				- Possibility to create events subscription, automation
@@ -308,6 +349,19 @@
 	- Azure Database Migration Service
 ## Azure Platform Solutions
 - Internet of Things
-- Big Data Analytics
-- Artificial Intelligence
+	- Azure IoT Central: fully managed global IoT SaaS solution that makes it easy to connect, monitor and manage IoT assets at scale
+	- Azure IoT Hub: managed service hosted in the cloud, act as a central message hub for bi-directional communication between IoT applications and devices
+	- Azure Sphere: secured, high-level application platform with built-in communication and security features for internet-connected devices
+- Big Data & Analytics
+	- Azure Synapse Analytics: cloud-based enterprise data warehouse
+	- Azure HDInsight: fully managed, open-source analytics service for enterprises
+	- Azure Databricks: Apache Spark based analytics service
+- Artificial Intelligence & Machine Learning
+	- Azure Machine Learning: cloud-based to develop, train and deploy machine learning models
+	- Azure Cognitive Services: quickly enable apps to see, hear, speak, understand and interpret user's needs
+	- Azure Bot Service: develop intelligent, enterprise-grade bots
 ## Azure DevOps Solutions
+- Azure DevOps: development collaboration tools including pipelines, Kanban boards and automated cloud-based load testing
+- GitHub: software development hosting with version control, source code management and bug/task management
+- GitHub Actions for Azure: automate software workflow to build, test and deploy from within GitHub
+- Azure DevTest Labs: quickly create environments in Azure while minimizing waste and controlling cost
