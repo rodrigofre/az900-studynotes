@@ -104,8 +104,6 @@
 - Can export infrastructure-as-code using resource manager templates
 	- Azure Resource Manager: management layer tha enables creation, update and deletion of resourcesn in a Azure subscription
 		- Accessed by many tools such as Azure Portal, Azure PowerShell, Azure CLI, REST interfaces
-		- ![image](https://user-images.githubusercontent.com/78084580/121572933-10288f80-c9fb-11eb-8556-fbd29cc0fc69.png)
-
 	![image](https://user-images.githubusercontent.com/78084580/115070799-caa08800-9ecb-11eb-96c1-20ede4182b77.png)
 	- Azure Subscription: authenticated and authorized access to Azure accounts
 		- Billing boundary: separate billing reports and invoices for each subscription
