@@ -363,3 +363,107 @@
 - GitHub: software development hosting with version control, source code management and bug/task management
 - GitHub Actions for Azure: automate software workflow to build, test and deploy from within GitHub
 - Azure DevTest Labs: quickly create environments in Azure while minimizing waste and controlling cost
+
+# Azure Security and Network Security
+## Security tools and features
+- Azure Security Center: monitoring servuce that provides threat protection across both Azure and on-prem datacenters
+	- Security recommendations, detect and block malware, analyze and identify potential attacks
+	- Capabilities:
+	- ![image](https://user-images.githubusercontent.com/78084580/121724833-cef9b380-cabe-11eb-9892-893702885762.png)
+- Azure Sentinel: security information management (SIEM) and security automated response (SOAR) solution that provides security analytics and threat intelligence across an enterprise
+	- Integrations with Office 365, Azure Active Directory, Microsoft Cloud App Security, Advanced Threat Protection
+- Key Vault: stores application secrets in a centralized cloud location in order to securely control access permissions and access logging
+	- Secrets management
+	- Key management
+	- Certificate management
+	- Access policies
+- Azure Dedicated Hosts: physical servers that host one or more Azure virtual machines that is dedicated to a single organization's workload
+	- Hardware isolation at server level
+	- Control over maintenance event timer
+	- Aligned with Azure Hybrid Use Benefits
+
+## Secure network connectivity
+- Defense in depth
+	- Layered approach to securing computer systems
+	- Multiple levels of protection
+	- Shared concern between cloud providers and customers
+	- ![image](https://user-images.githubusercontent.com/78084580/121726200-a1156e80-cac0-11eb-8ffc-8897ea0a747f.png)
+	- ![image](https://user-images.githubusercontent.com/78084580/121726296-be4a3d00-cac0-11eb-90a3-2e7999d50d01.png)
+	- Combine network security solutions (e.g. NSGs with Azure Firewall, perimeter layer with DDoS protection and Firewall, networking layer with NSG)
+- Network Security Groups (NSG)
+	- ![image](https://user-images.githubusercontent.com/78084580/121726491-02d5d880-cac1-11eb-89d4-e93cf788fd71.png)
+- Azure Firewall
+	- ![image](https://user-images.githubusercontent.com/78084580/121726607-2a2ca580-cac1-11eb-84dd-4de09c3ca50a.png)
+- Azure DDoS protection
+	- ![image](https://user-images.githubusercontent.com/78084580/121726825-6fe96e00-cac1-11eb-8d19-f218b754d136.png)
+
+# Identity, governance, privacy and compliance
+## Azure Identity Services
+- Authentication and authorization
+![image](https://user-images.githubusercontent.com/78084580/121727356-2ea58e00-cac2-11eb-9109-d2bd6a3c1781.png)
+- Multi-Factor Authentication: additional security requiring two or more elements for full authentication (something you now, possess and/or are)
+- Azure Active Directory
+![image](https://user-images.githubusercontent.com/78084580/121727548-70363900-cac2-11eb-9ec5-a614a747ff81.png)
+	- Condition access
+	- ![image](https://user-images.githubusercontent.com/78084580/121727687-9d82e700-cac2-11eb-9458-dd5ea623b29b.png)
+## Azure Governance methodologies
+- Role based access control (RBAC)
+	- Fine grained access management
+	- Segregate duties within the team and grant only amount of access to users that need to perform their jobs
+	- Access to Azure portal and access control to resources
+- Resource locks
+![image](https://user-images.githubusercontent.com/78084580/121728570-d8d1e580-cac3-11eb-9f6f-e239abcd18b4.png)
+- Tags
+	- Metadata for Azure resources
+	- Logically organizes resources into a taxonomy
+	- Consists of name-value pair
+	- Very useful for rolling up billing information
+![image](https://user-images.githubusercontent.com/78084580/121728791-1b93bd80-cac4-11eb-8974-dad054d34403.png)
+- Management Groups
+![image](https://user-images.githubusercontent.com/78084580/121728879-37975f00-cac4-11eb-9f86-d570fd0f3f00.png)
+- Azure Policy
+![image](https://user-images.githubusercontent.com/78084580/121729114-79c0a080-cac4-11eb-907b-9a7331291b9e.png)
+- Azure Blueprints
+- Cloud Adoption Framework for Azure
+![image](https://user-images.githubusercontent.com/78084580/121730447-133c8200-cac6-11eb-9be2-f12278e24449.png)
+
+## Privacy, compliance and data protection
+- Microsoft core tenants of Security, Privacy and Compliance
+![image](https://user-images.githubusercontent.com/78084580/121730639-55fe5a00-cac6-11eb-9dd3-9609aab4c35c.png)
+- Compliance Terms and Requirements
+![image](https://user-images.githubusercontent.com/78084580/121730835-9231ba80-cac6-11eb-94d4-e258cebdce64.png)
+- Microsoft Privacy Statement
+![image](https://user-images.githubusercontent.com/78084580/121730940-b097b600-cac6-11eb-864b-c5aef208ba85.png)
+- Online Services Terms and Data Protection Addendum
+![image](https://user-images.githubusercontent.com/78084580/121730995-c3aa8600-cac6-11eb-8276-6c0ab7418f54.png)
+- Trust Center
+![image](https://user-images.githubusercontent.com/78084580/121731062-d624bf80-cac6-11eb-8fdb-7ab332e5a9dc.png)
+- Azure Compliance Documentation
+![image](https://user-images.githubusercontent.com/78084580/121731229-08ceb800-cac7-11eb-9722-2e633baf0c96.png)
+- Azure Sovereign Regions
+![image](https://user-images.githubusercontent.com/78084580/121731370-37e52980-cac7-11eb-9eda-7c29759c0474.png)
+![image](https://user-images.githubusercontent.com/78084580/121731439-52b79e00-cac7-11eb-87da-e2bd3a135629.png)
+
+# Azure Pricing
+## Planning and Cost Management
+- Factors that affect costs
+![image](https://user-images.githubusercontent.com/78084580/121733080-66fc9a80-cac9-11eb-85a3-9fa5be7c5dad.png)
+![image](https://user-images.githubusercontent.com/78084580/121733265-a4f9be80-cac9-11eb-90ae-3948629f3a81.png)
+
+- Factors that reduce costs
+- Pricing calculator
+![image](https://user-images.githubusercontent.com/78084580/121733536-fefa8400-cac9-11eb-88a4-4321ad42d517.png)
+- Total Cost of Ownership Calculator
+![image](https://user-images.githubusercontent.com/78084580/121733587-0d48a000-caca-11eb-8c4c-8fc2bfd601cb.png)
+- Azure Cost Management
+![image](https://user-images.githubusercontent.com/78084580/121734571-551bf700-cacb-11eb-8a50-f5144d87a078.png)
+- Minimizing costs
+![image](https://user-images.githubusercontent.com/78084580/121734671-7a106a00-cacb-11eb-8697-0f6fcc9975fa.png)
+
+## Azure Service Level Agreements (SLA) and Service Lifecycles
+![image](https://user-images.githubusercontent.com/78084580/121735125-133f8080-cacc-11eb-859a-03b7e74fd857.png)
+![image](https://user-images.githubusercontent.com/78084580/121735212-2fdbb880-cacc-11eb-9913-fc5a4fa780c6.png)
+![image](https://user-images.githubusercontent.com/78084580/121735317-5699ef00-cacc-11eb-88ac-292c5f937eeb.png)
+![image](https://user-images.githubusercontent.com/78084580/121735513-9d87e480-cacc-11eb-9dd1-1c5e471261c3.png)
+![image](https://user-images.githubusercontent.com/78084580/121735651-cad49280-cacc-11eb-9407-523292efa8ad.png)
+![image](https://user-images.githubusercontent.com/78084580/121735851-14bd7880-cacd-11eb-8d93-21059fd4b566.png)
