@@ -1,5 +1,9 @@
 # az900-studynotes
 
+My notes for preparing to AZ-900 exam. I passed! :)
+
+![image](https://user-images.githubusercontent.com/78084580/122605286-9c673200-d04d-11eb-9b17-52edb098b41d.png)
+
 ## What is cloud computing?
  - Resources consuming on demand as utility e.g. VMs, storage
  - Delivery of computing services over the Internet
@@ -40,7 +44,6 @@
 ## CapEx vs. OpEx
 ![image](https://user-images.githubusercontent.com/78084580/121569436-2af90500-c9f7-11eb-9eea-f1c692b14c7b.png)
 ![image](https://user-images.githubusercontent.com/78084580/121569603-5976e000-c9f7-11eb-91d3-ed65d0d22bf2.png)
-
 
 ## Azure Concepts
 ### Azure Data Centers
@@ -366,7 +369,7 @@
 
 # Azure Security and Network Security
 ## Security tools and features
-- Azure Security Center: monitoring servuce that provides threat protection across both Azure and on-prem datacenters
+- Azure Security Center: monitoring service that provides threat protection across both Azure and on-prem datacenters
 	- Security recommendations, detect and block malware, analyze and identify potential attacks
 	- Capabilities:
 	- ![image](https://user-images.githubusercontent.com/78084580/121724833-cef9b380-cabe-11eb-9892-893702885762.png)
